@@ -1,0 +1,9 @@
+/.idea/
+/target/
+leetcode.iml
+
+/.settings
+*/.settings
+.classpath
+.project
+.DS_Store
