@@ -6,11 +6,26 @@ import java.util.ArrayList;
  */
 public class ZigZagConversion6 {
     public String convert(String s, int numRows) {
-        ArrayList<StringBuilder> rows = new ArrayList<StringBuilder>();
 
+        if (numRows == 1) {
+            return s;
+        }
 
+        ArrayList<StringBuilder> rows = new ArrayList<>();
+        int rowsCount = Math.min(s.length(), numRows);
+        for (int i = 0; i < rowsCount; i++) {
+            rows.add(new StringBuilder());
+        }
 
-
+        int curRow = 0;
+        boolean goingDown = false;
+        for (char c : s.toCharArray()) {
+            rows.get(curRow).append(c);
+            if (curRow == 0 || curRow == numRows-1) {
+                goingDown = !goingDown;
+            }
+            curRow += goingDown ? 1 : -1;
+        }
 
 
         StringBuilder sb = new StringBuilder();
@@ -22,14 +37,16 @@ public class ZigZagConversion6 {
     }
 
 
-
-
     public static void main(String[] args) {
-        String s = "LEETCODEISHIRING";
-        int numRows = 3;
+        String s = "AB";
+        int numRows = 1;
         String newStr = new ZigZagConversion6().convert(s, numRows);
-        assert "LCIRETOESIIGEDHN".equals(newStr);
+        assert "AB".equals(newStr);
 
+        s = "LEETCODEISHIRING";
+        numRows = 3;
+        newStr = new ZigZagConversion6().convert(s, numRows);
+        assert "LCIRETOESIIGEDHN".equals(newStr);
 
 
         s = "LEETCODEISHIRING";
