@@ -55,21 +55,6 @@ public class Q501 {
             res.add(currentElement);
             maxCount = currentCount;
         }
-
-
-//        if (currentElement != val) {
-//            if (currentCount == maxCount) {
-//                res.add(currentElement);
-//            } else if (currentCount > maxCount) {
-//                res.clear();
-//                res.add(currentElement);
-//                maxCount = currentCount;
-//            }
-//            currentElement = val;
-//            currentCount = 1;
-//        }else {
-//            currentCount ++;
-//        }
     }
 
 
